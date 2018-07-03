@@ -1,3 +1,8 @@
+/* Box-sizing hack to redefine width to include border */
+* {
+  box-sizing: content-box;
+}
+
 body {
   background-color: lightgray;
   color: #006bb6;
