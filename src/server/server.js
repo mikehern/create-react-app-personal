@@ -1,5 +1,6 @@
 const express = require('express');
 const os = require('os');
+const fetch = require('node-fetch');
 
 const app = express();
 
