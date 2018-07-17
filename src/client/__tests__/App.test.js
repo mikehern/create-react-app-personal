@@ -5,11 +5,11 @@ import { render, cleanup, wait, getByText } from 'react-testing-library';
 //Unmounts any React trees, preventing bugs and memory leaks
 afterEach(cleanup);
 
-describe(`Tests boilerplate component`, () => {
-  beforeEach(() => {
-    fetch.resetMocks();
-  });
+beforeEach(() => {
+  fetch.resetMocks();
+});
 
+describe(`Tests boilerplate component`, () => {
   it(`gets the username and returns it on the page`, async () => {
     //Prepare mocked data for the component to fetch
     const username = { username: `skynet` };
@@ -21,8 +21,9 @@ describe(`Tests boilerplate component`, () => {
     //Allows 4500ms (default) to pass, specifically for async fetch
     await wait();
 
-    //Uses 3rd optional parameter to check for partial match of 2nd arg, returning entire textContent
+    //Uses 3rd optional parameter to check for partial match of 2nd arg,
+    //returning div's entire textContent
     const headerText = getByText(container, 'Aloha', { exact: false }).textContent;
     expect(headerText).toBe(`Aloha skynet!`);
-  })
+  });
 });
